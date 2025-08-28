@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import '../utils/google_search/geo_coding.dart';
@@ -181,8 +182,9 @@ class _SearchLocationState extends State<SearchLocation> with TickerProviderStat
       }
 
       if (_currentInput == _tempInput) {
+        log('hlle');
         final predictions = await _makeRequest(_currentInput);
-        await _animationController.animateTo(0.4);
+        await _animationController.animateTo(0.5);
         setState(() => _placePredictions = predictions);
         await _animationController.forward();
 
